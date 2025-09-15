@@ -1,6 +1,6 @@
 // src/App.tsx
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import cloudflareLogo from "./assets/Cloudflare_Logo.svg";
@@ -10,6 +10,16 @@ import "./App.css";
 function App() {
   const [count, setCount] = useState(0);
   const [name, setName] = useState("unknown");
+
+  function fetchEphemeralKey() {
+    fetch("/api/ephemeral-key")
+      .then((res) => res.json() as Promise<{ ephemeralKey: string }>)
+      .then((data) => console.log("ephemeral key:", data.ephemeralKey));
+  }
+
+  useEffect(() => {
+    fetchEphemeralKey();
+  }, []);
 
   return (
     <>
