@@ -1,5 +1,5 @@
 import { Hono } from "hono";
-import { OpenAIEphemeralApiKeyResponseData } from "./types";
+import { OpenAIEphemeralApiKeyResponseData } from '../types';
 
 const app = new Hono<{ Bindings: Env }>();
 
@@ -7,8 +7,6 @@ const app = new Hono<{ Bindings: Env }>();
 app.get("/api/heartbeat", (context) => {
   return context.json({ message: 'API available' });
 });
-
-// https://platform.openai.com/docs/api-reference/realtime-sessions/create-realtime-client-secret
 
 /**
  * GET /api/ephemeral-key
@@ -72,7 +70,7 @@ app.get("/api/ephemeral-key", async (context) => {
       return context.json({ error: "No ephemeral key returned from OpenAI." }, 502);
     }
 
-    return context.json({ ephemeralKey: data.value }); // Success case 
+    return context.json({ data }); // Success case 
 
   } catch (err: unknown) {
     const errorMessage = err instanceof Error ? err.message : "Unknown error occurred.";

@@ -1,9 +1,9 @@
 /**
- * See: https://platform.openai.com/docs/api-reference/realtime-sessions/create-realtime-client-secret
- * 
- * POST https://api.openai.com/v1/realtime/client_secrets
- *
  * Represents the response from the OpenAI Realtime Ephemeral API key endpoint.
+ *
+ * `POST https://api.openai.com/v1/realtime/client_secrets`
+ * 
+ * See: https://platform.openai.com/docs/api-reference/realtime-sessions/create-realtime-client-secret
  */
 export interface OpenAIEphemeralApiKeyResponseData {
   /** The ephemeral client secret value. */
@@ -48,4 +48,17 @@ export interface OpenAIEphemeralApiKeyResponseData {
     };
     include: null | unknown;
   };
+}
+
+/**
+ * Represents the response from the Worker backend API.
+ * 
+ * - Endpoint defined in `src/worker/index.ts`
+ * - Endpoint called in `src/app/hooks/useRealtimeAgent.ts`
+ */
+export interface WorkerAPIResponseData {
+  /** The data returned from the API. */
+  data?: OpenAIEphemeralApiKeyResponseData;
+  /** An error message if an error occurred. */
+  error?: string;
 }
