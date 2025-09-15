@@ -5,6 +5,7 @@ function logSessionHistory(history: RealtimeItem[]) {
     if (item.type === 'message') {
       if (item.role === 'user') {
         const content = item.content[0];
+        if (!content?.type) return;
         const userText =
           content.type === "input_audio" ? content.transcript : "not found";
         if (userText === null) return;
@@ -17,6 +18,7 @@ function logSessionHistory(history: RealtimeItem[]) {
         );
       } else if (item.role === "assistant") {
         const content = item.content[0];
+        if (!content?.type) return;
         const assistantText =
           content.type === "output_audio" ? content.transcript : "not found";
         if (assistantText === null) return;
