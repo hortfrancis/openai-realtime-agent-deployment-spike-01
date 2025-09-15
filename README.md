@@ -1,90 +1,60 @@
-# React + Vite + Hono + Cloudflare Workers
+# openai-realtime-agent-deployment-spike-01
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/cloudflare/templates/tree/main/vite-react-template)
+This spike project explores deploying an **AI voice agent** using _OpenAI's Agents SDK_ & _Realtime API_ to _Cloudflare Workers_, with a _React_ frontend.
 
-This template provides a minimal setup for building a React application with TypeScript and Vite, designed to run on Cloudflare Workers. It features hot module replacement, ESLint integration, and the flexibility of Workers deployments.
+The deployed frontend in the browser calls the backend Cloudflare Worker to get an ephemeral client secret for connecting to OpenAI's Realtime API.
 
-![React + TypeScript + Vite + Cloudflare Workers](https://imagedelivery.net/wSMYJvS3Xw-n339CbDyDIA/fc7b4b62-442b-4769-641b-ad4422d74300/public)
+## Installation
 
-<!-- dash-content-start -->
-
-🚀 Supercharge your web development with this powerful stack:
-
-- [**React**](https://react.dev/) - A modern UI library for building interactive interfaces
-- [**Vite**](https://vite.dev/) - Lightning-fast build tooling and development server
-- [**Hono**](https://hono.dev/) - Ultralight, modern backend framework
-- [**Cloudflare Workers**](https://developers.cloudflare.com/workers/) - Edge computing platform for global deployment
-
-### ✨ Key Features
-
-- 🔥 Hot Module Replacement (HMR) for rapid development
-- 📦 TypeScript support out of the box
-- 🛠️ ESLint configuration included
-- ⚡ Zero-config deployment to Cloudflare's global network
-- 🎯 API routes with Hono's elegant routing
-- 🔄 Full-stack development setup
-- 🔎 Built-in Observability to monitor your Worker
-
-Get started in minutes with local development or deploy directly via the Cloudflare dashboard. Perfect for building modern, performant web applications at the edge.
-
-<!-- dash-content-end -->
-
-## Getting Started
-
-To start a new project with this template, run:
+**Clone the repository:**
 
 ```bash
-npm create cloudflare@latest -- --template=cloudflare/templates/vite-react-template
+git clone https://github.com/hortfrancis/openai-realtime-agent-deployment-spike-01.git
 ```
 
-A live deployment of this template is available at:
-[https://react-vite-template.templates.workers.dev](https://react-vite-template.templates.workers.dev)
+.. or, using the [GitHub CLI](https://cli.github.com/):
 
-## Development
+```bash
+gh repo clone hortfrancis/openai-realtime-agent-deployment-spike-01
+```
 
-Install dependencies:
+**Navigate to the project directory:**
+
+```bash
+cd openai-realtime-agent-deployment-spike-01
+```
+
+**Install dependencies:**
 
 ```bash
 npm install
 ```
 
-Start the development server with:
+## Configuration
+
+Get your OpenAI API key from [OpenAI's platform](https://platform.openai.com/account/api-keys).
+
+Create a `.dev.vars` file in the root directory and add your OpenAI API key:
+
+```env
+OPENAI_API_KEY=your_openai_api_key
+```
+
+## Running the project locally
+
+Start the development server:
 
 ```bash
 npm run dev
 ```
 
-Your application will be available at [http://localhost:5173](http://localhost:5173).
+Open your browser and navigate to `http://localhost:5173` (or the URL provided in the terminal) to see the React frontend.
 
-## Production
+## Additional resources
 
-Build your project for production:
-
-```bash
-npm run build
-```
-
-Preview your build locally:
-
-```bash
-npm run preview
-```
-
-Deploy your project to Cloudflare Workers:
-
-```bash
-npm run build && npm run deploy
-```
-
-Monitor your workers:
-
-```bash
-npx wrangler tail
-```
-
-## Additional Resources
-
-- [Cloudflare Workers Documentation](https://developers.cloudflare.com/workers/)
-- [Vite Documentation](https://vitejs.dev/guide/)
-- [React Documentation](https://reactjs.org/)
-- [Hono Documentation](https://hono.dev/)
+- [OpenAI Voice Agents documentation](https://platform.openai.com/docs/guides/voice-agents?voice-agent-architecture=speech-to-speech)
+- [OpenAI Realtime API documentation](https://platform.openai.com/docs/guides/realtime)
+- [Cloudflare Workers documentation](https://developers.cloudflare.com/workers/)
+- [Vite documentation](https://vitejs.dev/guide/)
+- [React documentation](https://reactjs.org/)
+- [Hono documentation](https://hono.dev/)
