@@ -4,21 +4,6 @@ import { getWeather, createDisplayTextTool } from './tools';
 import './App.css';
 
 function App() {
-
-  // function fetchEphemeralKey() {
-  //   fetch("/api/ephemeral-key")
-  //     .then((res) => res.json() as Promise<APIEphemeralKeyResponse>)
-  //     // .then((result) => console.log(result.data.value));
-  //     .then((result) => console.log("ephemeral key:", result.data.value));
-  // }
-
-  // useEffect(() => {
-  //   fetchEphemeralKey();
-  // }, []);
-
-
-
-
   const [displayText, setDisplayText] = useState<string>('');
 
   const tools = useMemo(() => {
