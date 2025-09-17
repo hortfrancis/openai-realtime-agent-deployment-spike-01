@@ -50,6 +50,13 @@ npm run dev
 
 Open your browser and navigate to `http://localhost:5173` (or the URL provided in the terminal) to see the React frontend.
 
+This project has two 'tools' (functions) the Realtime agent can call: 
+
+- `get_weather`: Returns a generic string response: "The weather in &lt;city&gt; is sunny."
+- `display_text`: Renders text to the screen, so it is visible to the user.
+
+You will have to say 'Hello' to trigger the voice agent's first response. You might start by asking it "What can you do in this environment?" -- it should respond by describing the tools above. Try asking it to get the weather for a city of your choice and displaying that info on the screen 🙂
+
 ## Additional resources
 
 - [OpenAI Voice Agents documentation](https://platform.openai.com/docs/guides/voice-agents?voice-agent-architecture=speech-to-speech)
