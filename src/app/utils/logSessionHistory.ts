@@ -15,6 +15,7 @@ function logSessionHistory(history: RealtimeItem[]) {
           "",
           "font-style: italic;",
           userText,
+          'item ID: ' + item.itemId
         );
       } else if (item.role === "assistant") {
         const content = item.content[0];
@@ -28,6 +29,7 @@ function logSessionHistory(history: RealtimeItem[]) {
           "",
           "font-style: italic;",
           assistantText,
+          'item ID: ' + item.itemId
         );
       }
     } else if (item.type === 'function_call') {
@@ -44,6 +46,7 @@ function logSessionHistory(history: RealtimeItem[]) {
         "",
         "font-family: monospace; font-style: italic;",
         JSON.stringify(item.arguments),
+        'item ID: ' + item.itemId
       );
     }
   });
