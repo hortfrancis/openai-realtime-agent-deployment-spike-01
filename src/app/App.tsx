@@ -1,6 +1,10 @@
 import { useMemo, useState } from 'react';
 import { useRealtimeAgent } from './hooks/';
-import { getWeather, createDisplayTextTool } from './tools';
+import {
+  getWeather,
+  createDisplayTextTool,
+  pickRandomNumber
+} from './tools';
 import './App.css';
 import type { RealtimeItem } from '@openai/agents/realtime';
 
@@ -9,10 +13,13 @@ function App() {
   const [customMagicWord, setCustomMagicWord] = useState<string>('');
 
   const tools = useMemo(() => {
-    return [getWeather, createDisplayTextTool(setDisplayText)];
+    return [
+      getWeather,
+      createDisplayTextTool(setDisplayText),
+      pickRandomNumber
+    ];
   }, [setDisplayText]);
 
-  // useRealtimeAgent(tools);
   const agent = useRealtimeAgent(tools);
 
   const handleClick = (magicWord: string) => {
